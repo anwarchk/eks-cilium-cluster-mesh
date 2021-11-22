@@ -1,0 +1,42 @@
+cluster:
+  id: 2
+  name: k8s-cluster-2
+tunnel: vxlan
+ipam:
+  mode: cluster-pool
+  operator:
+    clusterPoolIPv4PodCIDR: "172.60.0.0/16"
+    clusterPoolIPv4MaskSize: 24
+hubble:
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+kubeProxyReplacement: strict
+k8sServiceHost: xxxxxx.us-west-2.eks.amazonaws.com
+k8sServicePort: 443
+hostRouting: false
+clustermesh:
+  useAPIServer: true
+  apiserver:
+    service:
+      type: LoadBalancer
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-scheme: "internal"
+        service.beta.kubernetes.io/aws-load-balancer-type: "external"
+        service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "instance"
+    tls:
+      auto:
+        enabled: false
+      ca:
+        cert:
+        key:
+      server:
+        cert:
+        key:
+      remote:
+        cert:
+        key:
+      admin:
+        cert:
+        key:
