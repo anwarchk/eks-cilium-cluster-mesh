@@ -10,6 +10,9 @@
 helm repo add cilium https://helm.cilium.io/
 ```
 ### Step 2: Generate Your Own Certificate
+
+This step is optional if you have your own pre-existing certs and keys
+
 ```
 sh gen.sh
 ```
